@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <properties>
+        <property name="schema" value="public"/>
+    </properties>
+
+    <typeAliases>
+        <typeAlias type="by.group.apteka.domain.Package"/>
+        <typeAlias type="by.group.apteka.domain.Pharmacy"/>
+    </typeAliases>
+
+    <mappers>
+        <mapper resource="by/group/apteka/repository/pharmacy/mapper/IPharmacyMapper.xml"/>
+        <mapper resource="by/group/apteka/repository/packge/mapper/IPackageMapper.xml"/>
+    </mappers>
+</configuration>

@@ -1,0 +1,19 @@
+target
+out
+.gradle
+*.MF
+*.class
+
+# IntelliJ project files 
+*.iml
+*.iws
+*.ipr
+.idea
+19:41:59	
+.settings
+.classpath
+.project
+build
+bin
+test-output
+.springBeans

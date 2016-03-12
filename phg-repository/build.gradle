@@ -1,0 +1,23 @@
+group 'by.group.apteka'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(":phg-domain")
+    compile project(":phg-repository-api")
+
+    compile ("org.mybatis:mybatis:3.+")
+    compile ("org.mybatis:mybatis-spring:1.+")
+    compile ("org.springframework:spring-jdbc:4.2.+")
+
+    runtime ("commons-dbcp:commons-dbcp:1.+")
+    runtime ('postgresql:postgresql:9.1-901-1.jdbc4')
+
+    testCompile ("junit:junit:4.+")
+}

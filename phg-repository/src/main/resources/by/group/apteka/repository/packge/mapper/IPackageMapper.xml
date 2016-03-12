@@ -1,0 +1,19 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="IPackageMapper">
+    <resultMap id="packageResult" type="Package">
+        <id property="id" column="id"/>
+        <result property="packageId" column="packageid"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="Package">
+        insert into ${schema}.packages (
+            packageid
+        ) values (
+            #{packageId}
+        )
+    </insert>
+
+</mapper>
