@@ -4,16 +4,50 @@
 
 <mapper namespace="IPackageMapper">
     <resultMap id="packageResult" type="Package">
-        <id property="id" column="id"/>
-        <result property="packageId" column="packageid"/>
+        <id property="id" column="p_id"/>
+        <result property="packageId" column="p_package_id"/>
+        <result property="brand" column="p_brand"/>
+        <result property="drug" column="p_drug"/>
+        <result property="form" column="p_form"/>
+        <result property="remainder" column="p_remainder"/>
+        <result property="price3" column="p_price3"/>
     </resultMap>
 
-    <insert id="insert" parameterType="Package">
-        insert into ${schema}.packages (
-            packageid
-        ) values (
-            #{packageId}
-        )
-    </insert>
+    <sql id="default_columns">
+        ${alias}.id AS ${prefix}p_id,
+        ${alias}.packageid AS ${prefix}p_package_id,
+        ${alias}.brend AS ${prefix}p_brand,
+        ${alias}.drug AS ${prefix}p_drug,
+        ${alias}.form AS ${prefix}p_form
+    </sql>
+
+    <sql id="amount_columns">
+        ${alias}."Remainder" AS ${prefix}p_remainder,
+        ${alias}."Price3" AS ${prefix}p_price3
+    </sql>
+
+    <select id="findById" parameterType="int" resultMap="packageResult">
+        SELECT
+          <include refid="default_columns">
+              <property name="alias" value="p"/>
+              <property name="prefix" value=""/>
+          </include>
+        FROM
+          ${schema}.packages AS p
+        WHERE
+          p.packageid = #{id}
+    </select>
+
+    <select id="findPackagesByDrug" parameterType="string" resultMap="packageResult">
+        SELECT
+          <include refid="default_columns">
+              <property name="alias" value="p"/>
+              <property name="prefix" value=""/>
+          </include>
+        FROM
+          ${schema}.packages AS p
+        WHERE
+          lower(p.drug) LIKE '%' || lower(#{drug}) || '%'
+    </select>
 
 </mapper>

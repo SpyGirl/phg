@@ -5,15 +5,17 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import java.util.List;
+
 public class Package extends BaseEntity<Integer> {
 
     private int packageId;
     private String brand;
     private String drug;
     private String form;
-    private double reminder;
+    private double remainder;
     private int price3;
-    private Pharmacy pharmacy;
+    private List<Pharmacy> pharmacies;
 
     public int getPackageId() {
         return packageId;
@@ -47,12 +49,12 @@ public class Package extends BaseEntity<Integer> {
         this.form = form;
     }
 
-    public double getReminder() {
-        return reminder;
+    public double getRemainder() {
+        return remainder;
     }
 
-    public void setReminder(double reminder) {
-        this.reminder = reminder;
+    public void setRemainder(double remainder) {
+        this.remainder = remainder;
     }
 
     public int getPrice3() {
@@ -63,12 +65,12 @@ public class Package extends BaseEntity<Integer> {
         this.price3 = price3;
     }
 
-    public Pharmacy getPharmacy() {
-        return pharmacy;
+    public List<Pharmacy> getPharmacies() {
+        return pharmacies;
     }
 
-    public void setPharmacy(Pharmacy pharmacy) {
-        this.pharmacy = pharmacy;
+    public void setPharmacies(List<Pharmacy> pharmacies) {
+        this.pharmacies = pharmacies;
     }
 
     @Override
@@ -85,7 +87,8 @@ public class Package extends BaseEntity<Integer> {
                 .append(this.drug, that.drug)
                 .append(this.form, that.form)
                 .append(this.price3, that.price3)
-                .append(this.pharmacy, that.pharmacy)
+                .append(this.remainder, that.remainder)
+                .append(this.pharmacies, that.pharmacies)
                 .isEquals();
     }
 
@@ -98,7 +101,8 @@ public class Package extends BaseEntity<Integer> {
                 .append(this.drug)
                 .append(this.form)
                 .append(this.price3)
-                .append(this.pharmacy)
+                .append(this.remainder)
+                .append(this.pharmacies)
                 .toHashCode();
     }
 
@@ -111,7 +115,8 @@ public class Package extends BaseEntity<Integer> {
                 .append(this.drug)
                 .append(this.form)
                 .append(this.price3)
-                .append(this.pharmacy)
+                .append(this.remainder)
+                .append(this.pharmacies)
                 .toString();
     }
 }

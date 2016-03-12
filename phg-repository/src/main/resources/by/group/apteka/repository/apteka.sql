@@ -9,7 +9,7 @@ CREATE TABLE public.amount
   "ReportDate" integer NOT NULL DEFAULT 0,
   "Remainder" numeric NOT NULL DEFAULT 0.00,
   "Price3" integer NOT NULL DEFAULT 0,
-  "SalesId" integer NOT NULL DEFAULT nextval('"amount_SalesId_seq"'::regclass),
+  "SalesId" serial NOT NULL,
   filename character(50),
   CONSTRAINT amount_pkey PRIMARY KEY ("SalesId")
 )
@@ -55,7 +55,7 @@ CREATE INDEX "amount_ReportDate"
 
 CREATE TABLE public.packages
 (
-  id integer NOT NULL DEFAULT nextval('packages_id_seq'::regclass),
+  id serial NOT NULL,
   packageid integer,
   brend character varying(255),
   drug character varying(255),
@@ -111,7 +111,7 @@ CREATE INDEX packages_packageid
 
 CREATE TABLE public.pharmacies
 (
-  id integer NOT NULL DEFAULT nextval('pharmacies_id_seq'::regclass), -- Код Аптеки
+  id serial NOT NULL, -- Код Аптеки
   pharmacy character varying(80) NOT NULL, -- Название Аптеки
   pharmacyid integer,
   region text,
