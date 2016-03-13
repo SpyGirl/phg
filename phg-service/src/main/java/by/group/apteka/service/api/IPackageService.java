@@ -1,4 +1,4 @@
-package by.group.apteka.service.packge;
+package by.group.apteka.service.api;
 
 import by.group.apteka.domain.Package;
 

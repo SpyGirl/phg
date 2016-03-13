@@ -2,12 +2,13 @@ package by.group.apteka.repository.packge;
 
 import by.group.apteka.domain.Package;
 import by.group.apteka.repository.BaseRepository;
+import by.group.apteka.repository.api.packge.IPackageRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
- * Date: Март 12, 2016
+ * Date: Mar 12, 2016
  */
 @Repository
 public class PackageRepository extends BaseRepository<Integer, Package> implements IPackageRepository {

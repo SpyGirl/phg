@@ -1,5 +1,6 @@
 package by.group.apteka.repository;
 
+import by.group.apteka.repository.api.IBaseRepository;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -1,8 +1,9 @@
 package by.group.apteka.service.packge;
 
 import by.group.apteka.domain.Package;
-import by.group.apteka.repository.packge.IPackageRepository;
+import by.group.apteka.repository.api.packge.IPackageRepository;
 import by.group.apteka.service.AbstractService;
+import by.group.apteka.service.api.IPackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

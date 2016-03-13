@@ -10,9 +10,7 @@ repositories {
 
 dependencies {
     compile project (":phg-domain")
-    compile project (":phg-repository-api")
     compile project (":phg-repository")
-    compile project (":phg-service-api")
 
     compile("org.springframework:spring-context-support:4.2.+")
     compile ("org.springframework:spring-tx:4.2.+")

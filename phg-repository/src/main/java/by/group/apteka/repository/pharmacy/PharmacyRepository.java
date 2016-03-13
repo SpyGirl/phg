@@ -2,10 +2,11 @@ package by.group.apteka.repository.pharmacy;
 
 import by.group.apteka.domain.Pharmacy;
 import by.group.apteka.repository.BaseRepository;
+import by.group.apteka.repository.api.pharmacy.IPharmacyRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * Date: Март 12, 2016
+ * Date: Mar 12, 2016
  */
 @Repository
 public class PharmacyRepository extends BaseRepository<Integer, Pharmacy> implements IPharmacyRepository {

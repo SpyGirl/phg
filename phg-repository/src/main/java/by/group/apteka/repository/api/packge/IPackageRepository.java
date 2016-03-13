@@ -1,12 +1,12 @@
-package by.group.apteka.repository.packge;
+package by.group.apteka.repository.api.packge;
 
 import by.group.apteka.domain.Package;
-import by.group.apteka.repository.IBaseRepository;
+import by.group.apteka.repository.api.IBaseRepository;
 
 import java.util.List;
 
 /**
- * Date: Март 12, 2016
+ * Date: Mar 12, 2016
  */
 public interface IPackageRepository extends IBaseRepository<Integer, Package> {
 

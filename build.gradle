@@ -9,12 +9,4 @@ task wrapper(type: Wrapper) {
 apply plugin: 'java'
 apply plugin: 'idea'
 
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testCompile ("junit:junit:4.+")
-}
+sourceCompatibility = 1.7

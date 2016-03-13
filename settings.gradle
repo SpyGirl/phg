@@ -2,7 +2,6 @@ rootProject.name = 'rest-service'
 
 include 'phg-domain'
 include 'phg-repository'
-include 'phg-repository-api'
-include 'phg-service-api'
 include 'phg-service'
+include 'phg-rest'
 

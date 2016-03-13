@@ -1,11 +1,11 @@
-package by.group.apteka.repository;
+package by.group.apteka.repository.api;
 
 /**
  * Base repository interface.
  * @param <ID> stored object primary key
  * @param <T> stored object type
  * <p/>
- * Date: Март 12, 2016
+ * Date: Mar 12, 2016
  */
 public interface IBaseRepository<ID, T> {
 
