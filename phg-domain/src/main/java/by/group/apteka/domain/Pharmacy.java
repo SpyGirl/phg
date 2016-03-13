@@ -92,11 +92,11 @@ public class Pharmacy extends BaseEntity<Integer> {
         return new EqualsBuilder()
                 .append(this.getId(), that.getId())
                 .append(this.pharmacyId, that.pharmacyId)
+                .append(this.pharmacy, that.pharmacy)
                 .append(this.prefix, that.prefix)
                 .append(this.region, that.region)
                 .append(this.town, that.town)
                 .append(this.address, that.address)
-                .append(this.packages, that.packages)
                 .isEquals();
 
     }
@@ -106,11 +106,11 @@ public class Pharmacy extends BaseEntity<Integer> {
         return new HashCodeBuilder()
                 .append(this.getId())
                 .append(this.pharmacyId)
+                .append(this.pharmacy)
                 .append(this.prefix)
                 .append(this.region)
                 .append(this.town)
                 .append(this.address)
-                .append(this.packages)
                 .toHashCode();
     }
 
@@ -119,7 +119,7 @@ public class Pharmacy extends BaseEntity<Integer> {
         return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
                 .append(this.getId())
                 .append(this.pharmacyId)
-                .append(this.prefix)
+                .append(this.pharmacy)
                 .append(this.region)
                 .append(this.town)
                 .append(this.address)

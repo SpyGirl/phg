@@ -13,9 +13,7 @@ public class Package extends BaseEntity<Integer> {
     private String brand;
     private String drug;
     private String form;
-    private double remainder;
-    private int price3;
-    private List<Pharmacy> pharmacies;
+    private List<PackageDetails> packageDetailsList;
 
     public int getPackageId() {
         return packageId;
@@ -49,28 +47,12 @@ public class Package extends BaseEntity<Integer> {
         this.form = form;
     }
 
-    public double getRemainder() {
-        return remainder;
+    public List<PackageDetails> getPackageDetailsList() {
+        return packageDetailsList;
     }
 
-    public void setRemainder(double remainder) {
-        this.remainder = remainder;
-    }
-
-    public int getPrice3() {
-        return price3;
-    }
-
-    public void setPrice3(int price3) {
-        this.price3 = price3;
-    }
-
-    public List<Pharmacy> getPharmacies() {
-        return pharmacies;
-    }
-
-    public void setPharmacies(List<Pharmacy> pharmacies) {
-        this.pharmacies = pharmacies;
+    public void setPackageDetailsList(List<PackageDetails> packageDetailsList) {
+        this.packageDetailsList = packageDetailsList;
     }
 
     @Override
@@ -86,9 +68,6 @@ public class Package extends BaseEntity<Integer> {
                 .append(this.brand, that.brand)
                 .append(this.drug, that.drug)
                 .append(this.form, that.form)
-                .append(this.price3, that.price3)
-                .append(this.remainder, that.remainder)
-                .append(this.pharmacies, that.pharmacies)
                 .isEquals();
     }
 
@@ -100,9 +79,6 @@ public class Package extends BaseEntity<Integer> {
                 .append(this.brand)
                 .append(this.drug)
                 .append(this.form)
-                .append(this.price3)
-                .append(this.remainder)
-                .append(this.pharmacies)
                 .toHashCode();
     }
 
@@ -114,9 +90,7 @@ public class Package extends BaseEntity<Integer> {
                 .append(this.brand)
                 .append(this.drug)
                 .append(this.form)
-                .append(this.price3)
-                .append(this.remainder)
-                .append(this.pharmacies)
+                .append(this.packageDetailsList)
                 .toString();
     }
 }

@@ -23,8 +23,18 @@ public class PackageRepository extends BaseRepository<Integer, Package> implemen
     }
 
     @Override
+    public void update(Integer id, Package packge) {
+        throw new UnsupportedOperationException("Update operation for packages is not supported.");
+    }
+
+    @Override
     public List<Package> findPackagesByDrug(String drug) {
         return getTemplate().selectList(getNamespace() + ".findPackagesByDrug", drug);
+    }
+
+    @Override
+    public Package findWithDetailsById(Integer id) {
+        return getTemplate().selectOne(getNamespace() + ".findWithDetailsById", id);
     }
 
     @Override

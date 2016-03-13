@@ -3,5 +3,27 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="IPharmacyMapper">
+    <resultMap id="pharmacyResult" type="Pharmacy">
+        <id property="id" column="ph_id"/>
+        <result property="pharmacy" column="ph_pharmacy"/>
+        <result property="pharmacyId" column="ph_pharmacy_id"/>
+        <result property="region" column="ph_region"/>
+        <result property="town" column="ph_town"/>
+        <result property="address" column="ph_address"/>
+        <result property="unionId" column="ph_union_id"/>
+        <result property="prefix" column="ph_prefix"/>
+        <association property="packages" columnPrefix="ph_"
+                     resultMap="IPackageMapper.packageResult"/>
+    </resultMap>
 
+    <sql id="default_columns">
+        ${alias}.id AS ${prefix}ph_id,
+        ${alias}.pharmacy AS ${prefix}ph_pharmacy,
+        ${alias}.pharmacyid AS ${prefix}ph_pharmacyid,
+        ${alias}.region AS ${prefix}ph_region,
+        ${alias}.town AS ${prefix}ph_town,
+        ${alias}.adress AS ${prefix}ph_address,
+        ${alias}.phunionid AS ${prefix}ph_union_id,
+        ${alias}.prefix AS ${prefix}ph_prefix
+    </sql>
 </mapper>

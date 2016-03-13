@@ -9,8 +9,8 @@
         <result property="brand" column="p_brand"/>
         <result property="drug" column="p_drug"/>
         <result property="form" column="p_form"/>
-        <result property="remainder" column="p_remainder"/>
-        <result property="price3" column="p_price3"/>
+        <collection property="packageDetailsList" columnPrefix="p_"
+                    resultMap="IPackageDetailsMapper.packageDetailsResult"/>
     </resultMap>
 
     <sql id="default_columns">
@@ -19,11 +19,6 @@
         ${alias}.brend AS ${prefix}p_brand,
         ${alias}.drug AS ${prefix}p_drug,
         ${alias}.form AS ${prefix}p_form
-    </sql>
-
-    <sql id="amount_columns">
-        ${alias}."Remainder" AS ${prefix}p_remainder,
-        ${alias}."Price3" AS ${prefix}p_price3
     </sql>
 
     <select id="findById" parameterType="int" resultMap="packageResult">
@@ -48,6 +43,41 @@
           ${schema}.packages AS p
         WHERE
           lower(p.drug) LIKE '%' || lower(#{drug}) || '%'
+        LIMIT 20
+    </select>
+
+    <select id="findWithDetailsById" parameterType="int" resultMap="packageResult">
+        WITH am AS (
+          SELECT
+            "PackageID",
+            "PharmacyID",
+            max("ReportDate") as rd
+          FROM
+            ${schema}.amount
+          WHERE
+            "PackageID" = #{id}
+          GROUP BY
+            "PackageID", "PharmacyID"
+        )
+        SELECT
+          <include refid="default_columns">
+            <property name="alias" value="p"/>
+            <property name="prefix" value=""/>
+          </include>
+          ,
+          <include refid="IPackageDetailsMapper.package_details_columns">
+              <property name="amount_alias" value="a"/>
+              <property name="pharmacy_alias" value="ph"/>
+              <property name="prefix" value="p_"/>
+          </include>
+        FROM
+          ${schema}.amount AS a
+        JOIN am ON
+          a."PackageID" = am."PackageID" AND a."PharmacyID" = am."PharmacyID" AND a."ReportDate" = am.rd
+        JOIN ${schema}.packages AS p ON
+          a."PackageID" = p.packageid
+        JOIN ${schema}.pharmacies AS ph ON
+          a."PharmacyID" = ph.pharmacyid
     </select>
 
 </mapper>

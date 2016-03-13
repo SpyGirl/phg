@@ -11,4 +11,6 @@ import java.util.List;
 public interface IPackageRepository extends IBaseRepository<Integer, Package> {
 
     List<Package> findPackagesByDrug(String drug);
+
+    Package findWithDetailsById(Integer id);
 }

@@ -21,6 +21,11 @@ public class PharmacyRepository extends BaseRepository<Integer, Pharmacy> implem
     }
 
     @Override
+    public void update(Integer id, Pharmacy pharmacy) {
+        throw new UnsupportedOperationException("Update operation for pharmacies is not supported.");
+    }
+
+    @Override
     protected String getNamespace() {
         return "IPharmacyMapper";
     }

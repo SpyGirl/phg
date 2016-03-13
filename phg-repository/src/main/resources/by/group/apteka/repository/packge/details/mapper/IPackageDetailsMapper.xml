@@ -1,0 +1,25 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="IPackageDetailsMapper">
+    <resultMap id="packageDetailsResult" type="PackageDetails">
+        <result property="remainder" column="pd_remainder"/>
+        <result property="price3" column="pd_price3"/>
+        <association property="pharmacy" columnPrefix="pd_"
+                     resultMap="IPharmacyMapper.pharmacyResult"/>
+    </resultMap>
+
+    <sql id="package_details_columns">
+        ${amount_alias}."Remainder" AS ${prefix}pd_remainder,
+        ${amount_alias}."Price3" AS ${prefix}pd_price3,
+        ${pharmacy_alias}.id AS ${prefix}pd_ph_id,
+        ${pharmacy_alias}.pharmacy AS ${prefix}pd_ph_pharmacy,
+        ${pharmacy_alias}.pharmacyid AS ${prefix}pd_ph_pharmacyid,
+        ${pharmacy_alias}.region AS ${prefix}pd_ph_region,
+        ${pharmacy_alias}.town AS ${prefix}pd_ph_town,
+        ${pharmacy_alias}.adress AS ${prefix}pd_ph_address,
+        ${pharmacy_alias}.phunionid AS ${prefix}pd_ph_union_id,
+        ${pharmacy_alias}.prefix AS ${prefix}pd_ph_prefix
+    </sql>
+</mapper>

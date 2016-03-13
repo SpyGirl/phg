@@ -11,11 +11,13 @@
 
     <typeAliases>
         <typeAlias type="by.group.apteka.domain.Package"/>
+        <typeAlias type="by.group.apteka.domain.PackageDetails"/>
         <typeAlias type="by.group.apteka.domain.Pharmacy"/>
     </typeAliases>
 
     <mappers>
         <mapper resource="by/group/apteka/repository/pharmacy/mapper/IPharmacyMapper.xml"/>
         <mapper resource="by/group/apteka/repository/packge/mapper/IPackageMapper.xml"/>
+        <mapper resource="by/group/apteka/repository/packge/details/mapper/IPackageDetailsMapper.xml"/>
     </mappers>
 </configuration>
