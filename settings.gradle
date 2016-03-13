@@ -4,4 +4,5 @@ include 'phg-domain'
 include 'phg-repository'
 include 'phg-repository-api'
 include 'phg-service-api'
+include 'phg-service'
 
