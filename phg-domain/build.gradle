@@ -9,6 +9,6 @@ repositories {
 }
 
 dependencies {
-    compile ("org.apache.commons:commons-lang3:3.+")
+    compile ("org.apache.commons:commons-lang3:${commonsLangVersion}")
     testCompile ("junit:junit:4.+")
 }
