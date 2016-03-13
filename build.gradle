@@ -9,4 +9,4 @@ task wrapper(type: Wrapper) {
 apply plugin: 'java'
 apply plugin: 'idea'
 
-sourceCompatibility = 1.7
+sourceCompatibility = 1.8
